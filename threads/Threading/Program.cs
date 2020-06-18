@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Threading
 {
@@ -10,8 +11,9 @@ namespace Threading
             //TasksExample.DoSomething();
             //TaskFactoryExample.DoSomething();
             //TaskContinueWithExample.DoSomething();
-            LockExample.DoSomething();
+            //LockExample.DoSomething();
 
+            DeadLockExample.DoSomething();
         }
     }
 }

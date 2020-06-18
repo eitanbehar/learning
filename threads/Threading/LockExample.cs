@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Threading
@@ -42,6 +43,8 @@ namespace Threading
             {
                 lock (lockBalance)
                 {
+                    Thread.Sleep(200);
+
                     if (_balance < 0)
                     {
                         throw new Exception("Balance is negative, you cannot withdraw");
