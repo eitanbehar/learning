@@ -8,7 +8,9 @@ namespace Threading
         {
             //ExampleManualResetEvent.DoSomeWork();
             //TasksExample.DoSomething();
-            TaskFactoryExample.DoSomething();
+            //TaskFactoryExample.DoSomething();
+            //TaskContinueWithExample.DoSomething();
+            LockExample.DoSomething();
 
         }
     }
