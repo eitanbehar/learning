@@ -12,8 +12,16 @@ namespace Threading
             //TaskFactoryExample.DoSomething();
             //TaskContinueWithExample.DoSomething();
             //LockExample.DoSomething();
+            //DeadLockExample.DoSomething();
+            //AutoReset.DoSomething();
+            //MultipleAutoResetEvent.DoSomething();
+            //SimpleParallel.DoSomething();
+            ParallelFor.DoSomething();
 
-            DeadLockExample.DoSomething();
+            Console.WriteLine("Press any key to continue...");
+            _ = Console.ReadKey();
+
+
         }
     }
 }
