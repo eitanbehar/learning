@@ -16,7 +16,9 @@ namespace Threading
             //AutoReset.DoSomething();
             //MultipleAutoResetEvent.DoSomething();
             //SimpleParallel.DoSomething();
-            ParallelFor.DoSomething();
+            //ParallelFor.DoSomething();
+            //TaskCompletionSource.DoSomething();
+            PLinqIntro.DoSomething();
 
             Console.WriteLine("Press any key to continue...");
             _ = Console.ReadKey();
