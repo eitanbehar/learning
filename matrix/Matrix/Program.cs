@@ -8,16 +8,31 @@ namespace Matrix
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
 
-            var matrix1 = new MatrixArray(5, 5);
-            matrix1.Fill(10);
+            MatrixFactory sourceMatrixFactory = null; // don't know yet which matrix to use
+            MatrixFactory targetMatrixFactory = null;
 
-            var matrix2 = new MatrixList(5, 5);
-            matrix2.Fill(20);
+            Console.Write("Select source matrix: '1' for Matrix Array, else for Matrix List... ");
+            if (Console.ReadLine() == "1")
+            {
+                sourceMatrixFactory = new MatrixArrayFactory(10, 10);
+                targetMatrixFactory = new MatrixListFactory(10, 10);
+            }
+            else
+            {
+                sourceMatrixFactory = new MatrixListFactory(10, 10);
+                targetMatrixFactory = new MatrixArrayFactory(10, 10);
+            }
 
-            var newMatrix = matrix1.Add(matrix2); 
+            var sourceMatrix = sourceMatrixFactory.GetMatrix();
+            var targetMatrix = targetMatrixFactory.GetMatrix();
+
+            sourceMatrix.Fill(10);
+            targetMatrix.Fill(30);
+
+            var newMatrix = sourceMatrix.Add(targetMatrix);
 
         }
     }

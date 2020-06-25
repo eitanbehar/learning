@@ -11,17 +11,26 @@ namespace Matrix
         public IMatrix Add(IMatrix matrix)
         {
             var resultMatrix = matrix.GetNewMatrix();
-            for (int i = 0; i < matrix.LenghtDimension0; i++)
-                for (int j = 0; j < matrix.LenghtDimension1; j++)
+            Parallel.For(0, matrix.LenghtDimension0, (i) =>
+            {
+                Parallel.For(0, matrix.LenghtDimension1, (j) =>
+                {
                     resultMatrix.SetValue(i, j, GetValue(i, j) + matrix.GetValue(i, j));
+                });
+            });
             return resultMatrix;
         }
 
         public void Fill(int value)
         {
-            for (int i = 0; i < LenghtDimension0; i++)
-                for (int j = 0; j < LenghtDimension1; j++)
+            Parallel.For(0, LenghtDimension0, (i) =>
+            {
+                Parallel.For(0, LenghtDimension1, (j) =>
+                {
                     SetValue(i, j, value);
+                });
+            });
+            
         }
 
         public abstract IMatrix GetNewMatrix();
@@ -29,7 +38,7 @@ namespace Matrix
 
         public abstract int GetValue(int x, int y);
 
-        
+
         public abstract int LenghtDimension0 { get; }
 
         public abstract int LenghtDimension1 { get; }

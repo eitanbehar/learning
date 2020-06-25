@@ -45,8 +45,11 @@
   <ItemGroup>
     <Compile Include="IMatrix.cs" />
     <Compile Include="MatrixArray.cs" />
+    <Compile Include="MatrixArrayFactory.cs" />
     <Compile Include="MatrixBase.cs" />
+    <Compile Include="MatrixFactory.cs" />
     <Compile Include="MatrixList.cs" />
+    <Compile Include="MatrixListFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
