@@ -1,29 +1,27 @@
 #include "room.h"
 
-void room::set_sensor_entry()
-{    
-    // check exit sensor to detect someone going out
-    if (sensor_exit.get_state())
-    {
-        people_in_room--;        
-        sensor_exit.clear();
-    }
-    else
-    {
-        sensor_entry.set(); // save state
-    }        
+room::room()
+{
+    sensorDoor.main_sensor = &sensor_door;
+    sensorDoor.related_sensor = &sensor_hall;
+    sensorDoor.direction_vector = 1;
+
+    sensorHall.main_sensor = &sensor_hall;
+    sensorHall.related_sensor = &sensor_door;
+    sensorHall.direction_vector = -1;
 }
 
-void room::set_sensor_exit()
+void room::detected_movement(sensorConnection& sensor_connection)
 {
-    // check entry sensor to detect someone going out
-    if (sensor_entry.get_state())
+    if (sensor_connection.related_sensor -> get_state())
     {
-        people_in_room++;        
-        sensor_entry.clear();
+        // people getting in
+        people_in_room += sensor_connection.direction_vector;
+        sensor_connection.related_sensor -> clear();
     }
     else
     {
-        sensor_exit.set(); // save state
-    } 
+        sensor_connection.main_sensor -> set();
+    }
 }
+

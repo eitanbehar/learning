@@ -1,12 +1,16 @@
 #include "sensor.h"
+#include "sensorConnection.h"
 
 class room
 {
 private:
-    sensor sensor_entry;
-    sensor sensor_exit;
-public:    
-    int people_in_room = 0;   
-    void set_sensor_entry();
-    void set_sensor_exit();     
+    sensor sensor_hall;
+    sensor sensor_door;
+
+public:
+    sensorConnection sensorHall;
+    sensorConnection sensorDoor;
+    int people_in_room = 0;
+    void detected_movement(sensorConnection &sensor);
+    room();
 };

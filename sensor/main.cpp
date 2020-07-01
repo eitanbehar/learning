@@ -17,13 +17,13 @@ void main()
     {
         if (flow[i] == 1) // someone in
         {
-            workRoom.set_sensor_entry();
-            workRoom.set_sensor_exit();
+            workRoom.detected_movement(workRoom.sensorHall);
+            workRoom.detected_movement(workRoom.sensorDoor);
         }
         else //someone out
         {
-            workRoom.set_sensor_exit();
-            workRoom.set_sensor_entry();
+            workRoom.detected_movement(workRoom.sensorDoor);
+            workRoom.detected_movement(workRoom.sensorHall);            
         }
 
         cout << "People in room: " << workRoom.people_in_room << "\n\r"; 

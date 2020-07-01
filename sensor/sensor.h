@@ -4,5 +4,6 @@ class sensor {
     public:
         bool get_state();
         void set();
-        void clear();
+        void clear();        
 };
+
