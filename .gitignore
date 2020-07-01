@@ -5,7 +5,10 @@
 *.suo
 *.user
 *.sln.docstates
+*.obj
+*.pdb
 
+#folders
 bin/
 obj/
 .vs/
